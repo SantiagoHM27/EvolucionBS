@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consultoría Financiera EvoluciónBS</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="media/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="media/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="media/favicon/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="media/favicon/favicon-180.png">
+
+<!-- Bootstrap 5 -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --evo-red: #F0503B;
+  --evo-red-dark: #D63E2B;
+  --evo-black: #171412;
+  --evo-pink-bg: #FBF1F4;
+  --evo-gray-bg: #FAFAF9;
+  --evo-white: #FFFFFF;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--evo-black);
+  background: var(--evo-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; }
+
+/* ===== NAVBAR ===== */
+.evo-navbar {
+  background: var(--evo-white);
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.evo-brand-mini {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--evo-black);
+}
+.evo-nav .nav-link {
+  color: var(--evo-black);
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.4rem 0.2rem;
+  position: relative;
+}
+.evo-nav .nav-link.active,
+.evo-nav .nav-link:hover {
+  color: var(--evo-red);
+}
+.evo-nav .nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 2px;
+  background: var(--evo-red);
+}
+.evo-nav-secondary {
+  font-size: 0.8rem !important;
+  color: #999 !important;
+  font-weight: 400 !important;
+  padding-left: 0.75rem !important;
+  border-left: 1px solid #ddd;
+}
+.evo-nav-secondary:hover {
+  color: var(--evo-red) !important;
+}
+@media (max-width: 991.98px) {
+  .evo-nav-secondary {
+    border-left: none;
+    padding-left: 0.2rem !important;
+  }
+}
+
+/* ===== HERO ===== */
+.evo-hero {
+  padding: 3.5rem 0 0;
+  text-align: center;
+}
+.evo-logo-img { width: 220px; max-width: 70vw; height: auto; }
+.evo-wordmark {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 3rem;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.25rem;
+}
+.evo-red-text { color: var(--evo-red); }
+.evo-tagline {
+  letter-spacing: 2px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #4a4a4a;
+  margin-bottom: 2.5rem;
+}
+
+.evo-hero-media {
+  position: relative;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.evo-hero-img {
+  width: 100%;
+  height: min(60vh, 520px);
+  object-fit: cover;
+  border-radius: 32px 32px 0 0;
+  display: block;
+}
+.evo-hero-pills {
+  position: relative;
+  margin-top: -34px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding-bottom: 2.5rem;
+}
+.evo-pill {
+  background: var(--evo-white);
+  color: var(--evo-black);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: center;
+  line-height: 1.3;
+  border-radius: 999px;
+  padding: 0.9rem 1.6rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.14);
+  border-bottom: 2px solid var(--evo-black);
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.evo-pill:hover {
+  background: var(--evo-red);
+  color: var(--evo-white);
+  border-color: var(--evo-red);
+  transform: translateY(-3px);
+}
+
+/* ===== SECTIONS ===== */
+.evo-section {
+  padding: 6rem 0;
+}
+.evo-section-alt {
+  background: var(--evo-gray-bg);
+}
+.evo-why {
+  margin-top: 5rem;
+}
+.evo-h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2.4rem;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+.evo-h2-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+.evo-h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--evo-red);
+  margin-bottom: 1.75rem;
+}
+.evo-lead {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #2c2c2c;
+}
+.evo-bold-lead {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+.evo-inline-link {
+  color: var(--evo-red);
+  font-weight: 600;
+  border-bottom: 1px solid var(--evo-red);
+}
+
+/* ===== CIRCLE LOGO CARD (Nosotros) ===== */
+.evo-circle-frame {
+  width: min(320px, 80vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid var(--evo-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 50% 30%, rgba(240,80,59,0.06), transparent 60%);
+}
+.evo-circle-logo {
+  text-align: center;
+  padding: 1rem;
+}
+.evo-circle-logo-img { width: 190px; max-width: 78%; height: auto; margin-bottom: 0.9rem; }
+.evo-circle-word {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+.evo-circle-logo small {
+  display: block;
+  font-size: 0.55rem;
+  letter-spacing: 1px;
+  color: var(--evo-red);
+  margin-top: 0.2rem;
+}
+
+/* ===== RED CARD / NUMBERED LIST ===== */
+.evo-red-card {
+  background: linear-gradient(160deg, var(--evo-red) 0%, var(--evo-red-dark) 100%);
+  border-radius: 28px;
+  padding: 2.5rem 2.25rem;
+  color: var(--evo-white);
+}
+.evo-numbered-list li {
+  display: flex;
+  gap: 1.1rem;
+  padding-bottom: 1.6rem;
+  margin-bottom: 1.6rem;
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+}
+.evo-numbered-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.evo-badge {
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--evo-black);
+  color: var(--evo-white);
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.evo-numbered-list h3 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 0.35rem;
+  color: var(--evo-white);
+}
+.evo-numbered-list p {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  opacity: 0.92;
+  margin: 0;
+}
+
+/* ===== COMUNIDAD ===== */
+.evo-avatar {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 0.9rem;
+  border: 3px solid var(--evo-white);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+.evo-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.evo-team-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 0;
+}
+.evo-team-row { margin-bottom: 0.5rem; }
+
+/* ===== SERVICIOS ===== */
+.evo-service-img {
+  width: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+  max-height: 260px;
+}
+
+/* ===== TESTIMONIOS ===== */
+.evo-testimonial-card {
+  background: var(--evo-white);
+  border-radius: 20px;
+  padding: 1.25rem;
+  height: 100%;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+.evo-testimonial-media {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+.evo-testimonial-media img,
+.evo-testimonial-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.evo-placeholder-media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: var(--evo-gray-bg);
+  border: 2px dashed #d9d4d1;
+  color: #9a9490;
+  text-align: center;
+  padding: 1rem;
+}
+.evo-placeholder-media span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  max-width: 180px;
+}
+.evo-testimonial-quote {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+.evo-testimonial-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--evo-red);
+  margin: 0;
+}
+
+/* ===== FAQ / FORM ===== */
+.evo-section-faq {
+  background: var(--evo-pink-bg);
+}
+.evo-form label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+.evo-input {
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  padding: 0.75rem 1rem;
+  background: var(--evo-white);
+}
+.evo-input:focus {
+  border-color: var(--evo-red);
+  box-shadow: 0 0 0 0.2rem rgba(240,80,59,0.15);
+}
+.evo-btn-submit {
+  background: var(--evo-red);
+  color: var(--evo-white);
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.85rem;
+  border: none;
+  transition: background 0.2s ease;
+}
+.evo-btn-submit:hover { background: var(--evo-red-dark); color: var(--evo-white); }
+.evo-form-note {
+  font-size: 0.78rem;
+  color: #777;
+  text-align: center;
+  margin-top: 0.9rem;
+  margin-bottom: 0;
+}
+.evo-form-note-inline {
+  font-size: 0.85rem;
+  color: #555;
+}
+.evo-form-status {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  min-height: 1.4rem;
+}
+.evo-form-status.is-success { color: #1a7a3c; }
+.evo-form-status.is-error { color: #c0392b; }
+.evo-input.is-invalid { border-color: #c0392b; }
+.evo-btn-submit:disabled { opacity: 0.65; cursor: not-allowed; }
+
+/* ===== FOOTER / VISÍTANOS ===== */
+.evo-footer {
+  background: var(--evo-red);
+  color: var(--evo-white);
+  padding: 5rem 0;
+}
+.evo-footer-title {
+  color: var(--evo-white);
+  margin-bottom: 3rem;
+}
+.evo-footer-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--evo-black);
+}
+.evo-footer-link a,
+.evo-footer-text a {
+  color: var(--evo-white);
+  border-bottom: 1px solid rgba(255,255,255,0.6);
+}
+.evo-footer-link a:hover,
+.evo-footer-text a:hover { color: var(--evo-black); border-color: var(--evo-black); }
+.evo-copyright {
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 991.98px) {
+  .evo-navbar .navbar-collapse { padding-top: 1rem; }
+  .evo-nav { text-align: center; }
+  .evo-wordmark { font-size: 2.3rem; }
+  .evo-hero-pills { margin-top: 1.5rem; }
+  .evo-hero-img { border-radius: 24px; height: 320px; }
+  .evo-section { padding: 4rem 0; }
+  .evo-h2, .evo-h2-italic { font-size: 2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .evo-pill { transition: none; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar navbar-expand-lg evo-navbar sticky-top">
+  <div class="container-xl">
+    <a class="navbar-brand evo-brand-mini d-lg-none" href="#inicio">EvoluciónBS</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#evoNav" aria-controls="evoNav" aria-expanded="false" aria-label="Abrir menú">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="evoNav">
+      <ul class="navbar-nav evo-nav gap-lg-4 align-items-lg-center">
+        <li class="nav-item"><a class="nav-link active" href="#inicio">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+        <li class="nav-item"><a class="nav-link" href="#comunidad">Nuestra comunidad</a></li>
+        <li class="nav-item"><a class="nav-link" href="#servicios">Nuestros servicios</a></li>
+        <li class="nav-item"><a class="nav-link" href="#testimonios">Testimonios</a></li>
+        <li class="nav-item"><a class="nav-link" href="#faq">Preguntas frecuentes</a></li>
+        <li class="nav-item"><a class="nav-link" href="#visitanos">Visítanos</a></li>
+        <li class="nav-item"><a class="nav-link evo-nav-secondary" href="aviso-privacidad.html">Aviso de Privacidad</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO / INICIO ============ -->
+<header id="inicio" class="evo-hero">
+  <div class="container-xl text-center">
+    <div class="evo-logo mx-auto mb-2">
+      <img src="media/logo/logo.png" alt="Logotipo Consultoría Financiera EvoluciónBS" class="evo-logo-img">
+    </div>
+    <h1 class="visually-hidden">EvoluciónBS — Consultoría Financiera EvoluciónBS</h1>
+    <p class="evo-tagline">CONSULTORÍA FINANCIERA EVOLUCIÓNBS</p>
+
+    <div class="evo-hero-media">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80"
+           alt="Oficina de consultoría EvoluciónBS" class="evo-hero-img">
+
+      <div class="evo-hero-pills">
+        <a href="#nosotros" class="evo-pill">Sobre<br>nosotros</a>
+        <a href="#servicios" class="evo-pill">Nuestros<br>servicios</a>
+        <a href="#faq" class="evo-pill">Preguntas<br>frecuentes</a>
+        <a href="#comunidad" class="evo-pill">Nuestra<br>comunidad</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ NOSOTROS ============ -->
+<section id="nosotros" class="evo-section">
+  <div class="container-xl">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5">
+        <div class="evo-circle-frame mx-auto">
+          <div class="evo-circle-logo">
+            <img src="media/logo/logo.png" alt="Logotipo Consultoría Financiera EvoluciónBS" class="evo-circle-logo-img">
+            <small>CONSULTORÍA FINANCIERA EVOLUCIÓNBS</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <h2 class="evo-h2">Sobre <span class="evo-red-text">nosotros</span></h2>
+        <p class="evo-lead">
+          En <strong>Consultoría EvoluciónBS</strong> somos una empresa comprometida con brindar
+          soluciones financieras y de seguridad social de manera
+          <strong>legal, transparente y profesional.</strong>
+          Nuestro objetivo es acompañar a cada cliente durante todo su proceso, ofreciendo
+          asesoría personalizada y un servicio confiable que le permita acceder a los
+          beneficios a los que tiene derecho.
+        </p>
+      </div>
+    </div>
+
+    <div class="row g-5 align-items-start evo-why">
+      <div class="col-lg-5">
+        <h2 class="evo-h2">¿Por qué<br>elegirnos?</h2>
+        <p class="evo-bold-lead">Tu tranquilidad también es parte de nuestro servicio.</p>
+        <p>En <a href="#" class="evo-inline-link">Consultoría Financiera EvoluciónBS</a>, tu confianza es nuestra mayor responsabilidad.</p>
+        <p>En <a href="#" class="evo-inline-link">Consultoría EvoluciónBS</a> trabajamos para ayudarte a encontrar soluciones financieras de manera clara, profesional y personalizada.</p>
+        <p>Nuestro compromiso es acompañarte durante cada etapa del proceso, brindándote orientación, atención cercana y seguimiento para que puedas tomar decisiones con mayor seguridad.</p>
+      </div>
+      <div class="col-lg-7">
+        <div class="evo-red-card">
+          <ol class="evo-numbered-list list-unstyled">
+            <li>
+              <span class="evo-badge">1</span>
+              <div>
+                <h3>Atención personalizada</h3>
+                <p>Cada caso es diferente. Analizamos tu situación para orientarte de acuerdo con tus necesidades.</p>
+              </div>
+            </li>
+            <li>
+              <span class="evo-badge">2</span>
+              <div>
+                <h3>Experiencia y profesionalismo</h3>
+                <p>Contamos con un equipo comprometido con brindar atención seria, responsable y enfocada en ofrecer soluciones adecuadas para cada cliente.</p>
+              </div>
+            </li>
+            <li>
+              <span class="evo-badge">3</span>
+              <div>
+                <h3>Acompañamiento de principio a fin</h3>
+                <p>Orientación para conocer las alternativas disponibles para tu proceso de pensión.</p>
+              </div>
+            </li>
+            <li>
+              <span class="evo-badge">4</span>
+              <div>
+                <h3>Información clara y transparente</h3>
+                <p>Te explicamos requisitos, procesos y alternativas de manera sencilla, para que puedas tomar decisiones con mayor conocimiento.</p>
+              </div>
+            </li>
+            <li>
+              <span class="evo-badge">5</span>
+              <div>
+                <h3>Confidencialidad y responsabilidad</h3>
+                <p>La información y documentación proporcionada por nuestros clientes se maneja con responsabilidad y bajo estrictos criterios de confidencialidad.</p>
+              </div>
+            </li>
+            <li>
+              <span class="evo-badge">6</span>
+              <div>
+                <h3>Agilidad y seguimiento</h3>
+                <p>Buscamos que tu proceso sea lo más sencillo y organizado posible, manteniéndote informado sobre sus avances.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NUESTRA COMUNIDAD ============ -->
+<section id="comunidad" class="evo-section evo-section-alt">
+  <div class="container-xl text-center">
+    <h2 class="evo-h2 mb-5">Nuestra <span class="evo-red-text">comunidad</span></h2>
+
+    <h3 class="evo-h3">Directivo general</h3>
+    <div class="row justify-content-center g-4 evo-team-row">
+      <div class="col-6 col-md-3">
+        <div class="evo-avatar"><img src="media/equipo/jorge-baez.jpg" alt="Jorge Baez García, Director General"></div>
+        <p class="evo-team-name"><span class="evo-red-text">Director General</span> Jorge Baez García</p>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="evo-avatar"><img src="media/equipo/marina-sosa.jpg" alt="Marina Sosa Gutiérrez, Directora Comercial"></div>
+        <p class="evo-team-name"><span class="evo-red-text">Directora Comercial</span> Marina Sosa Gutiérrez</p>
+      </div>
+    </div>
+
+    <h3 class="evo-h3 mt-5">Coordinación</h3>
+    <div class="row justify-content-center g-4 evo-team-row">
+      <div class="col-6 col-md-3">
+        <div class="evo-avatar"><img src="media/equipo/mirna-mejia.jpg" alt="Mirna Isabel Mejía Mendieta"></div>
+        <p class="evo-team-name"><span class="evo-red-text">Licenciada</span> Mirna Isabel Mejía Mendieta</p>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="evo-avatar"><img src="media/equipo/monica-aviles.jpg" alt="Mónica Margarita Avilés Romero"></div>
+        <p class="evo-team-name"><span class="evo-red-text">Licenciada</span> Mónica Margarita Avilés Romero</p>
+      </div>
+    </div>
+
+    <h3 class="evo-h3 mt-5">Área administrativa</h3>
+    <div class="row justify-content-center g-4 evo-team-row">
+      <div class="col-6 col-md-3">
+        <div class="evo-avatar"><img src="media/equipo/noemi-lozano.jpg" alt="Noemí Lozano"></div>
+        <p class="evo-team-name"><span class="evo-red-text">Licenciada</span> Noemí Lozano</p>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="evo-avatar"><img src="media/equipo/ana-roldan.jpg" alt="Ana Kitzely Roldán Rodarte, Asistente Ejecutiva"></div>
+        <p class="evo-team-name"><span class="evo-red-text">Asistente Ejecutiva</span> Ana Kitzely Roldán Rodarte</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NUESTROS SERVICIOS ============ -->
+<section id="servicios" class="evo-section">
+  <div class="container-xl">
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-5">
+        <h2 class="evo-h2">Nuestros<br><span class="evo-red-text">servicios</span></h2>
+        <p class="evo-lead">
+          Contamos con experiencia en trámites como <strong>retiro parcial por desempleo de AFORE</strong>,
+          <strong>Mejoravit</strong>, <strong>pensiones</strong>, <strong>Modalidad 40 y correcciones de datos ante el IMSS.</strong>
+          Analizamos cada caso de forma individual para ofrecer la mejor alternativa, siempre respetando la normatividad vigente.
+        </p>
+        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=80"
+             alt="Llaves de casa sobre planos, representando el trámite Mejoravit" class="evo-service-img mt-4">
+      </div>
+
+      <div class="col-lg-7">
+        <div class="evo-red-card">
+          <ol class="evo-numbered-list list-unstyled" start="1">
+            <li>
+              <span class="evo-badge">1</span>
+              <div>
+                <h3>Retiro parcial por desempleo de AFORE</h3>
+                <p>Te orientamos sobre los requisitos y alternativas disponibles para realizar un retiro parcial por desempleo de tu cuenta AFORE.</p>
+              </div>
+            </li>
+            <li>
+              <span class="evo-badge">2</span>
+              <div>
+                <h3>Crédito Mejoravit</h3>
+                <p>Te asesoramos sobre las opciones de crédito para la adquisición de tu dinero 100% en efectivo y los requisitos correspondientes.</p>
+              </div>
+            </li>
+            <li>
+              <span class="evo-badge">3</span>
+              <div>
+                <h3>Pensiones</h3>
+                <p>Orientación para conocer las alternativas disponibles para tu proceso de pensión.</p>
+              </div>
+            </li>
+            <li>
+              <span class="evo-badge">4</span>
+              <div>
+                <h3>Modalidad 40</h3>
+                <p>Asesoría para conocer si esta modalidad puede ser una alternativa de acuerdo con tu historial de cotización.</p>
+              </div>
+            </li>
+            <li>
+              <span class="evo-badge">5</span>
+              <div>
+                <h3>Correcciones IMSS y RENAPO</h3>
+                <p>Te ayudamos a identificar inconsistencias en tus datos y orientarte sobre el proceso de corrección correspondiente.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIOS ============ -->
+<!--
+  CÓMO AGREGAR UN TESTIMONIO NUEVO:
+  Dentro de la sección de abajo, busca los bloques de ejemplo comentados
+  (marcados como "TESTIMONIOS DE EJEMPLO") y sigue las instrucciones que
+  están justo ahí, dentro de la etiqueta <div class="row ...">.
+-->
+<section id="testimonios" class="evo-section evo-section-alt">
+  <div class="container-xl">
+    <div class="text-center mb-5">
+      <h2 class="evo-h2">Testimonios de <span class="evo-red-text">nuestros clientes</span></h2>
+      <p class="evo-lead mx-auto" style="max-width: 640px;">
+        Estas son algunas de las personas a las que hemos acompañado en su proceso.
+      </p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      <!--
+        TESTIMONIOS DE EJEMPLO (ocultos hasta tener más casos reales).
+        Instrucciones: cuando tengas otro testimonio (foto o video), copia
+        uno de estos bloques comentados un poco más abajo, complétalo con
+        los datos reales, y elimina las marcas de comentario que lo envuelven
+        para que se muestre. Si terminas con 3 o más tarjetas en total,
+        cambia col-md-6 col-lg-5 por col-md-4 en todas, para que se repartan
+        bien en la fila.
+
+        <div class="col-md-4">
+          <div class="evo-testimonial-card">
+            <div class="evo-testimonial-media evo-placeholder-media">
+              <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12.5" r="3.2"/><path d="M8 6l1.5-2h5L16 6"/></svg>
+              <span>Sube aquí la foto del testimonio</span>
+            </div>
+            <p class="evo-testimonial-quote">Escribe aquí la cita o comentario del cliente.</p>
+            <p class="evo-testimonial-name">Nombre del cliente</p>
+          </div>
+        </div>
+      -->
+
+      <!-- Testimonio real: Albis Galicia (video) -->
+      <div class="col-md-6 col-lg-5">
+        <div class="evo-testimonial-card">
+          <div class="evo-testimonial-media">
+            <video controls preload="metadata" poster="media/testimonios/albis-galicia-portada.jpg">
+              <source src="media/testimonios/albis-galicia.mp4" type="video/mp4">
+              Tu navegador no soporta la reproducción de video.
+            </video>
+          </div>
+          <p class="evo-testimonial-quote">
+            Albis acudió a EvoluciónBS para tramitar su retiro parcial por desempleo de AFORE.
+            Gracias a la orientación y acompañamiento de nuestro equipo, pudo completar su
+            proceso de forma clara y sin complicaciones, y hoy comparte su experiencia satisfecha
+            con el servicio recibido.
+          </p>
+          <p class="evo-testimonial-name">Albis Galicia</p>
+        </div>
+      </div>
+
+      <!--
+        <div class="col-md-4">
+          <div class="evo-testimonial-card">
+            <div class="evo-testimonial-media evo-placeholder-media">
+              <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12.5" r="3.2"/><path d="M8 6l1.5-2h5L16 6"/></svg>
+              <span>Sube aquí la foto del testimonio</span>
+            </div>
+            <p class="evo-testimonial-quote">Escribe aquí la cita o comentario del cliente.</p>
+            <p class="evo-testimonial-name">Nombre del cliente</p>
+          </div>
+        </div>
+      -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ PREGUNTAS FRECUENTES / CONTACTO ============ -->
+<section id="faq" class="evo-section evo-section-faq">
+  <div class="container-xl">
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-5">
+        <h2 class="evo-h2-italic">¿Cómo sé si puedo realizar un trámite?</h2>
+        <p class="evo-lead">
+          Cada trámite tiene requisitos diferentes. Nuestro equipo puede revisar tu situación
+          y orientarte sobre las opciones disponibles para tu caso.
+        </p>
+      </div>
+
+      <div class="col-lg-7">
+        <form class="evo-form" id="evoContactForm" novalidate>
+          <div class="mb-4">
+            <label for="nombre" class="form-label">Nombre completo</label>
+            <input type="text" class="form-control evo-input" id="nombre" name="nombre" placeholder="Escribe tu nombre" required>
+          </div>
+          <div class="mb-4">
+            <label for="telefono" class="form-label">Número de teléfono</label>
+            <input type="tel" class="form-control evo-input" id="telefono" name="telefono" placeholder="10 dígitos" pattern="[0-9]{10}" required>
+          </div>
+          <div class="mb-4">
+            <label for="correo" class="form-label">Correo electrónico</label>
+            <input type="email" class="form-control evo-input" id="correo" name="correo" placeholder="tucorreo@ejemplo.com" required>
+          </div>
+          <div class="mb-4">
+            <label for="mensaje" class="form-label">Tu mensaje</label>
+            <textarea class="form-control evo-input" id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos brevemente tu caso" required></textarea>
+          </div>
+          <div class="form-check mb-4">
+            <input class="form-check-input" type="checkbox" id="aceptaAviso" required>
+            <label class="form-check-label evo-form-note-inline" for="aceptaAviso">
+              He leído y acepto el <a href="aviso-privacidad.html" target="_blank" class="evo-inline-link">Aviso de Privacidad</a>.
+            </label>
+          </div>
+          <button type="submit" class="btn evo-btn-submit w-100" id="evoSubmitBtn">Enviar</button>
+          <p class="evo-form-note">Tu información se maneja de forma confidencial. Nunca compartas contraseñas ni datos sensibles por este medio.</p>
+          <div id="evoFormStatus" class="evo-form-status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISÍTANOS ============ -->
+<footer id="visitanos" class="evo-footer">
+  <div class="container-xl text-center">
+    <h2 class="evo-h2 evo-footer-title">Visítanos también en:</h2>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <h3 class="evo-footer-label">Nuestras oficinas</h3>
+        <p class="evo-footer-link"><a href="https://maps.google.com/?q=Calle+5+de+Febrero+305,+Apizaco,+Tlaxcala" target="_blank" rel="noopener">Calle 5 de Febrero 305, Apizaco, Tlaxcala</a></p>
+
+        <h3 class="evo-footer-label mt-4">Correo electrónico</h3>
+        <p class="evo-footer-text"><a href="mailto:consultoevolucion@gmail.com">consultoevolucion@gmail.com</a></p>
+
+        <h3 class="evo-footer-label mt-4">Página de Facebook</h3>
+        <p class="evo-footer-link"><a href="#" target="_blank" rel="noopener">Consultoria financiera EvoluciónBS</a></p>
+
+        <h3 class="evo-footer-label mt-4">Número de teléfono</h3>
+        <p class="evo-footer-link"><a href="tel:2411224480">241 122 4480</a></p>
+        <p class="evo-footer-link"><a href="tel:2411275668">241 127 5668</a></p>
+      </div>
+    </div>
+
+    <p class="evo-copyright mt-5">
+      © 2026 Consultoría Financiera EvoluciónBS. Todos los derechos reservados.
+      &nbsp;·&nbsp; <a href="aviso-privacidad.html" style="color:var(--evo-white); text-decoration:underline;">Aviso de Privacidad</a>
+    </p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script>
+// ============================================================
+// CONEXIÓN DEL FORMULARIO A LA BASE DE DATOS (Google Sheets)
+// ============================================================
+// 1. Sigue las instrucciones del archivo "instrucciones-backend.md"
+//    para crear tu Google Sheet + Apps Script (5-10 minutos).
+// 2. Pega aquí la URL que te da Apps Script al publicar como "Web App".
+//    Debe verse así: https://script.google.com/macros/s/AKfycb.../exec
+const EVO_FORM_ENDPOINT = "PEGA_AQUI_TU_URL_DE_APPS_SCRIPT";
+// ============================================================
+
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("evoContactForm");
+  const btn = document.getElementById("evoSubmitBtn");
+  const status = document.getElementById("evoFormStatus");
+
+  if (!form) return;
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    status.textContent = "";
+    status.className = "evo-form-status";
+
+    // Validación simple en el navegador
+    if (!form.checkValidity()) {
+      form.classList.add("was-validated");
+      status.textContent = "Por favor completa todos los campos correctamente.";
+      status.classList.add("is-error");
+      return;
+    }
+
+    if (EVO_FORM_ENDPOINT.includes("PEGA_AQUI")) {
+      status.textContent = "Aún falta conectar el formulario a la base de datos (ver instrucciones-backend.md).";
+      status.classList.add("is-error");
+      return;
+    }
+
+    const data = {
+      nombre: document.getElementById("nombre").value.trim(),
+      telefono: document.getElementById("telefono").value.trim(),
+      correo: document.getElementById("correo").value.trim(),
+      mensaje: document.getElementById("mensaje").value.trim(),
+      fecha: new Date().toISOString()
+    };
+
+    btn.disabled = true;
+    btn.textContent = "Enviando...";
+
+    try {
+      // Apps Script Web Apps requieren este modo para evitar problemas de CORS
+      await fetch(EVO_FORM_ENDPOINT, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+
+      status.textContent = "¡Gracias! Tu solicitud fue enviada, te contactaremos pronto.";
+      status.classList.add("is-success");
+      form.reset();
+      form.classList.remove("was-validated");
+    } catch (err) {
+      status.textContent = "Hubo un problema al enviar tu solicitud. Intenta de nuevo o escríbenos por WhatsApp.";
+      status.classList.add("is-error");
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "Enviar";
+    }
+  });
+});
+</script>
+</body>
+</html>
