@@ -311,7 +311,7 @@ a { text-decoration: none; }
 }
 .evo-testimonial-media {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   border-radius: 14px;
   overflow: hidden;
   margin-bottom: 1rem;
@@ -321,6 +321,19 @@ a { text-decoration: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+}
+.evo-testimonial-media--yt {
+  aspect-ratio: 16 / 9;
+  position: relative;
+  background: #000;
+}
+.evo-testimonial-media--yt iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
   display: block;
 }
 .evo-placeholder-media {
@@ -382,6 +395,21 @@ a { text-decoration: none; }
   transition: background 0.2s ease;
 }
 .evo-btn-submit:hover { background: var(--evo-red-dark); color: var(--evo-white); }
+.evo-btn-outline {
+  display: inline-block;
+  background: transparent;
+  color: var(--evo-red);
+  font-weight: 700;
+  border: 2px solid var(--evo-red);
+  border-radius: 999px;
+  padding: 0.75rem 2rem;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.evo-btn-outline:hover {
+  background: var(--evo-red);
+  color: var(--evo-white);
+}
 .evo-form-note {
   font-size: 0.78rem;
   color: #777;
@@ -688,10 +716,17 @@ a { text-decoration: none; }
 
 <!-- ============ TESTIMONIOS ============ -->
 <!--
-  CÓMO AGREGAR UN TESTIMONIO NUEVO:
-  Dentro de la sección de abajo, busca los bloques de ejemplo comentados
-  (marcados como "TESTIMONIOS DE EJEMPLO") y sigue las instrucciones que
-  están justo ahí, dentro de la etiqueta <div class="row ...">.
+  COMO AGREGAR UN VIDEO TESTIMONIO NUEVO (via YouTube):
+  1. Sube el video a YouTube como "No listado" (ver instrucciones-youtube.md).
+  2. Copia el ID del video (la parte despues de "v=" en la URL de YouTube).
+  3. Copia una de las tarjetas de abajo que digan PEGA_AQUI_TU_ID_DE_YOUTUBE
+     y reemplaza esa parte por el ID real, dentro del src del iframe:
+     src="https://www.youtube.com/embed/TU_ID_AQUI"
+  4. Cambia la cita y el nombre del cliente.
+  5. Si ya tienes mas de 3 testimonios en total, agrega los videos extra
+     directamente en la pagina testimonios.html (la pagina "ver todos"),
+     no aqui. Aqui en el Inicio solo deben quedar los 3 mas recientes o
+     los que quieras destacar.
 -->
 <section id="testimonios" class="evo-section evo-section-alt">
   <div class="container-xl">
@@ -702,36 +737,18 @@ a { text-decoration: none; }
       </p>
     </div>
 
-    <div class="row g-4 justify-content-center">
-      <!--
-        TESTIMONIOS DE EJEMPLO (ocultos hasta tener más casos reales).
-        Instrucciones: cuando tengas otro testimonio (foto o video), copia
-        uno de estos bloques comentados un poco más abajo, complétalo con
-        los datos reales, y elimina las marcas de comentario que lo envuelven
-        para que se muestre. Si terminas con 3 o más tarjetas en total,
-        cambia col-md-6 col-lg-5 por col-md-4 en todas, para que se repartan
-        bien en la fila.
-
-        <div class="col-md-4">
-          <div class="evo-testimonial-card">
-            <div class="evo-testimonial-media evo-placeholder-media">
-              <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12.5" r="3.2"/><path d="M8 6l1.5-2h5L16 6"/></svg>
-              <span>Sube aquí la foto del testimonio</span>
-            </div>
-            <p class="evo-testimonial-quote">Escribe aquí la cita o comentario del cliente.</p>
-            <p class="evo-testimonial-name">Nombre del cliente</p>
-          </div>
-        </div>
-      -->
-
-      <!-- Testimonio real: Albis Galicia (video) -->
-      <div class="col-md-6 col-lg-5">
+    <div class="row g-4">
+      <!-- Testimonio 1: Albis Galicia (video de YouTube) -->
+      <div class="col-md-4">
         <div class="evo-testimonial-card">
-          <div class="evo-testimonial-media">
-            <video controls preload="metadata" poster="media/testimonios/albis-galicia-portada.jpg">
-              <source src="media/testimonios/albis-galicia.mp4" type="video/mp4">
-              Tu navegador no soporta la reproducción de video.
-            </video>
+          <div class="evo-testimonial-media evo-testimonial-media--yt">
+            <iframe
+              src="https://www.youtube.com/embed/Ov4oU7_41sM"
+              title="Testimonio de Albis Galicia - EvoluciónBS"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
           </div>
           <p class="evo-testimonial-quote">
             Albis acudió a EvoluciónBS para tramitar su retiro parcial por desempleo de AFORE.
@@ -743,18 +760,43 @@ a { text-decoration: none; }
         </div>
       </div>
 
-      <!--
-        <div class="col-md-4">
-          <div class="evo-testimonial-card">
-            <div class="evo-testimonial-media evo-placeholder-media">
-              <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12.5" r="3.2"/><path d="M8 6l1.5-2h5L16 6"/></svg>
-              <span>Sube aquí la foto del testimonio</span>
-            </div>
-            <p class="evo-testimonial-quote">Escribe aquí la cita o comentario del cliente.</p>
-            <p class="evo-testimonial-name">Nombre del cliente</p>
+      <!-- Testimonio 2: Norberto Iván (video de YouTube) — falta pegar el ID -->
+      <div class="col-md-4">
+        <div class="evo-testimonial-card">
+          <div class="evo-testimonial-media evo-testimonial-media--yt">
+            <iframe
+              src="https://www.youtube.com/embed/sg2Um136puo"
+              title="Testimonio de Norberto Iván - EvoluciónBS"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
           </div>
+          <p class="evo-testimonial-quote">Norberto Iván tramitó su ayuda por desempleo de AFORE con EvoluciónBS. Destaca la orientación clara y el acompañamiento cercano que recibió durante todo el proceso, y quedó satisfecho con el resultado.</p>
+          <p class="evo-testimonial-name">Norberto Iván</p>
         </div>
-      -->
+      </div>
+
+      <!-- Testimonio 3: Bárbara Yessenia (video de YouTube) — falta pegar el ID -->
+      <div class="col-md-4">
+        <div class="evo-testimonial-card">
+          <div class="evo-testimonial-media evo-testimonial-media--yt">
+            <iframe
+              src="https://www.youtube.com/embed/wY3uJBz8jPE"
+              title="Testimonio de Bárbara Yessenia - EvoluciónBS"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <p class="evo-testimonial-quote">Bárbara Yessenia también tramitó su ayuda por desempleo con nosotros y quedó encantada con la atención recibida. Ella misma lo dice: si aún no has hecho tu trámite, ¿qué esperas para empezar el tuyo?</p>
+          <p class="evo-testimonial-name">Bárbara Yessenia</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <a href="testimonios.html" class="btn evo-btn-outline">Ver todos los testimonios</a>
     </div>
   </div>
 </section>

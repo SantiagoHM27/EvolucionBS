@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Todos los Testimonios | Consultoría Financiera EvoluciónBS</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="icon" type="image/x-icon" href="media/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="media/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="media/favicon/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="media/favicon/favicon-180.png">
+
+<style>
+:root {
+  --evo-red: #F0503B;
+  --evo-red-dark: #D63E2B;
+  --evo-black: #171412;
+  --evo-gray-bg: #FAFAF9;
+  --evo-white: #FFFFFF;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Poppins', 'Segoe UI', sans-serif;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: var(--font-body);
+  color: var(--evo-black);
+  background: var(--evo-white);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--evo-red); }
+.evo-navbar {
+  background: var(--evo-white);
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.evo-brand {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--evo-black);
+  text-decoration: none;
+}
+.evo-brand span { color: var(--evo-red); }
+.evo-back-link {
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+.evo-navbar .container-xl {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.evo-page-hero {
+  background: var(--evo-gray-bg);
+  padding: 3.5rem 1.5rem 2.5rem;
+  text-align: center;
+}
+.evo-h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2.4rem;
+}
+.evo-lead {
+  font-size: 1.05rem;
+  color: #2c2c2c;
+  max-width: 620px;
+  margin: 0.75rem auto 0;
+}
+.evo-page-body {
+  padding: 3.5rem 1.5rem 5rem;
+}
+.evo-testimonial-card {
+  background: var(--evo-white);
+  border-radius: 20px;
+  padding: 1.25rem;
+  height: 100%;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+.evo-testimonial-media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  position: relative;
+  background: #000;
+}
+.evo-testimonial-media img,
+.evo-testimonial-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.evo-testimonial-media iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+.evo-testimonial-quote {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+.evo-testimonial-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--evo-red);
+  margin: 0;
+}
+.evo-footer-mini {
+  background: var(--evo-red);
+  color: var(--evo-white);
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 0.85rem;
+}
+.evo-footer-mini a { color: var(--evo-white); text-decoration: underline; }
+
+@media (max-width: 575.98px) {
+  .evo-h1 { font-size: 1.9rem; }
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar evo-navbar">
+  <div class="container-xl d-flex justify-content-between align-items-center">
+    <a class="evo-brand" href="index.html">Evolución<span>BS</span></a>
+    <a class="evo-back-link" href="index.html">&larr; Volver al sitio</a>
+  </div>
+</nav>
+
+<header class="evo-page-hero">
+  <h1 class="evo-h1">Todos nuestros <span style="color:var(--evo-red)">testimonios</span></h1>
+  <p class="evo-lead">
+    Estas son las personas a las que hemos acompañado en su proceso ante AFORE, Mejoravit,
+    pensiones, Modalidad 40 y correcciones ante el IMSS.
+  </p>
+</header>
+
+<main class="container-xl evo-page-body">
+  <!--
+    COMO AGREGAR UN TESTIMONIO NUEVO AQUI:
+    1. Sube el video a YouTube como "No listado" y copia su ID.
+    2. Copia uno de los bloques <div class="col-md-4"> de abajo completo.
+    3. Pegalo antes de la etiqueta que cierra </div> del <div class="row g-4">.
+    4. Reemplaza PEGA_AQUI_TU_ID_DE_YOUTUBE por el ID real.
+    5. Cambia la cita y el nombre del cliente.
+    No hay limite de cuantos puedes agregar aqui, esta pagina esta
+    pensada para crecer con el tiempo.
+  -->
+  <div class="row g-4">
+
+    <!-- Testimonio 1: Albis Galicia (video de YouTube) -->
+    <div class="col-md-4">
+      <div class="evo-testimonial-card">
+        <div class="evo-testimonial-media">
+          <iframe
+            src="https://www.youtube.com/embed/Ov4oU7_41sM"
+            title="Testimonio de Albis Galicia - EvoluciónBS"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <p class="evo-testimonial-quote">
+          Albis acudió a EvoluciónBS para tramitar su retiro parcial por desempleo de AFORE.
+          Gracias a la orientación y acompañamiento de nuestro equipo, pudo completar su
+          proceso de forma clara y sin complicaciones, y hoy comparte su experiencia satisfecha
+          con el servicio recibido.
+        </p>
+        <p class="evo-testimonial-name">Albis Galicia</p>
+      </div>
+    </div>
+
+    <!-- Testimonio 2: Carime Hernández (foto) -->
+    <div class="col-md-4">
+      <div class="evo-testimonial-card">
+        <div class="evo-testimonial-media">
+          <img src="media/testimonios/carime-hernandez.jpg" alt="Carime Hernández, cliente de EvoluciónBS">
+        </div>
+        <p class="evo-testimonial-quote">
+          Carime acudió a EvoluciónBS para tramitar su ayuda por desempleo. Quedó muy a gusto
+          con la atención y el acompañamiento durante todo su trámite, y recomienda ampliamente
+          a la consultoría.
+        </p>
+        <p class="evo-testimonial-name">Carime Hernández</p>
+      </div>
+    </div>
+
+    <!-- Testimonio 3: Norberto Iván (video de YouTube) — falta pegar el ID -->
+    <div class="col-md-4">
+      <div class="evo-testimonial-card">
+        <div class="evo-testimonial-media">
+          <iframe
+            src="https://www.youtube.com/embed/sg2Um136puo"
+            title="Testimonio de Norberto Iván - EvoluciónBS"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <p class="evo-testimonial-quote">Norberto Iván tramitó su ayuda por desempleo de AFORE con EvoluciónBS. Destaca la orientación clara y el acompañamiento cercano que recibió durante todo el proceso, y quedó satisfecho con el resultado.</p>
+        <p class="evo-testimonial-name">Norberto Iván</p>
+      </div>
+    </div>
+
+    <!-- Testimonio 4: Bárbara Yessenia (video de YouTube) — falta pegar el ID -->
+    <div class="col-md-4">
+      <div class="evo-testimonial-card">
+        <div class="evo-testimonial-media">
+          <iframe
+            src="https://www.youtube.com/embed/wY3uJBz8jPE"
+            title="Testimonio de Bárbara Yessenia - EvoluciónBS"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <p class="evo-testimonial-quote">Bárbara Yessenia también tramitó su ayuda por desempleo con nosotros y quedó encantada con la atención recibida. Ella misma lo dice: si aún no has hecho tu trámite, ¿qué esperas para empezar el tuyo?</p>
+        <p class="evo-testimonial-name">Bárbara Yessenia</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="evo-footer-mini">
+  <p class="mb-0">© 2026 Consultoría Financiera EvoluciónBS · <a href="index.html">Volver al inicio</a></p>
+</footer>
+
+</body>
+</html>
